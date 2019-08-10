@@ -4,7 +4,6 @@
   "description": "",
   "main": "db.js",
   "dependencies": {
-    "axios": "^0.18.0",
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-proposal-decorators": "^7.4.0",
@@ -17,6 +16,7 @@
     "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
+    "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
     "express": "^4.16.4",
     "fake": "^0.2.2",
@@ -24,6 +24,11 @@
     "pg": "^7.8.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "sequelize": "^4.42.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"
