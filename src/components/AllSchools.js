@@ -4,12 +4,14 @@ import { connect } from 'react-redux'
 class AllSchools extends Component {
   render() {
     const { schools } = this.props
-    console.log(schools)
     return (
       <div>
-        <ul>
+        <ul className="list-unstyled">
           {schools.map(school => (
-            <li key={school.id}>{school.name}</li>
+            <li key={school.id}>
+              <img src={school.imageUrl} className="school-list-image" />
+              {school.name}
+            </li>
           ))}
         </ul>
       </div>

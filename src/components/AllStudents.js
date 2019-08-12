@@ -4,10 +4,9 @@ import { connect } from 'react-redux'
 class AllStudents extends Component {
   render() {
     const { students } = this.props
-    console.log(students)
     return (
       <div>
-        <ul>
+        <ul className="list-unstyled">
           {students.map(student => (
             <li key={student.id}>
               {student.firstName} {student.lastName}

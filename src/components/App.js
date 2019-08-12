@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import Nav from './Nav'
 import AllSchools from './AllSchools'
 import AllStudents from './AllStudents'
+import SingleSchool from './SingleSchool'
+import SingleStudent from './SingleStudent'
 import { getAllSchoolsThunk } from '../redux/actions/school'
 import { getAllStudentsThunk } from '../redux/actions/student'
 
@@ -18,7 +20,9 @@ class App extends Component {
         <Route component={Nav} />
         <Switch>
           <Route exact path="/schools" component={AllSchools} />
+          <Route exact path="/schools/:id" component={SingleSchool} />
           <Route exact path="/students" component={AllStudents} />
+          <Route exact path="/students/:id" component={SingleStudent} />
         </Switch>
       </Router>
     )
