@@ -13,3 +13,19 @@ export const getAllStudentsThunk = () => {
       .then(({ data }) => dispatch(getAllStudents(data)))
   }
 }
+
+export const createStudentThunk = newStudent => {
+  return dispatch => {
+    axios
+      .post('/api/students/', newStudent)
+      .then(() => dispatch(getAllStudentsThunk()))
+  }
+}
+
+export const deleteStudentThunk = id => {
+  return dispatch => {
+    axios
+      .delete(`/api/students/${id}`)
+      .then(() => dispatch(getAllStudentsThunk()))
+  }
+}

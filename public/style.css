@@ -1,0 +1,11 @@
+.list-image {
+  height: 100px;
+  width: 100px;
+  margin: 5px;
+}
+
+.single-image {
+  height: 200px;
+  width: auto;
+  margin: 5px;
+}
