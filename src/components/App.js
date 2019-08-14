@@ -7,7 +7,9 @@ import AllStudents from './AllStudents'
 import SingleSchool from './SingleSchool'
 import SingleStudent from './SingleStudent'
 import SchoolForm from './SchoolForm'
+import SchoolEditForm from './SchoolEditForm'
 import StudentForm from './StudentForm'
+import StudentEditForm from './StudentEditForm'
 import { getAllSchoolsThunk } from '../redux/actions/school'
 import { getAllStudentsThunk } from '../redux/actions/student'
 
@@ -24,9 +26,11 @@ class App extends Component {
           <Route exact path="/schools" component={AllSchools} />
           <Route exact path="/schools/:id" component={SingleSchool} />
           <Route path="/schoolform" component={SchoolForm} />
+          <Route path="/schools/:id/edit" component={SchoolEditForm} />
           <Route exact path="/students" component={AllStudents} />
           <Route exact path="/students/:id" component={SingleStudent} />
           <Route path="/studentform" component={StudentForm} />
+          <Route path="/students/:id/edit" component={StudentEditForm} />
         </Switch>
       </Router>
     )

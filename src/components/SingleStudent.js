@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { deleteStudentThunk } from '../redux/actions/student'
 
 class SingleStudent extends Component {
   render() {
-    const { student, schools } = this.props
+    const { student, schools, deleteStudent } = this.props
 
     const studentSchool = schools.length
       ? schools.find(s => s.id === student.schoolId)
       : 'No School'
 
-    if (!student || !studentSchool) {
+    if (!student) {
       return <div />
     }
 
@@ -24,8 +25,22 @@ class SingleStudent extends Component {
         <h6>GPA: {student.gpa}</h6>
         <h6>
           CAMPUS:{' '}
-          <Link to={`/schools/${studentSchool.id}`}>{studentSchool.name}</Link>
+          {studentSchool ? (
+            <Link to={`/schools/${studentSchool.id}`}>
+              {studentSchool.name}
+            </Link>
+          ) : (
+            'No School Assigned'
+          )}
         </h6>
+        <Link to={`/students/${student.id}/edit`}>Edit</Link>
+        <button
+          type="submit"
+          className="standard-btn"
+          onClick={() => deleteStudent(student.id)}
+        >
+          <Link to="/students">Remove</Link>
+        </button>
       </div>
     )
   }
@@ -38,4 +53,13 @@ const mapStateToProps = ({ students, schools }, { match: { params } }) => {
   }
 }
 
-export default connect(mapStateToProps)(SingleStudent)
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteStudent: id => dispatch(deleteStudentThunk(id))
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SingleStudent)

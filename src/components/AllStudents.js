@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { deleteStudentThunk } from '../redux/actions/student'
 
 class AllStudents extends Component {
   render() {
-    const { students } = this.props
+    const { students, deleteStudent } = this.props
     return (
       <div>
         <ul className="list-unstyled">
@@ -13,6 +14,10 @@ class AllStudents extends Component {
               <Link to={`/students/${student.id}`}>
                 {student.firstName} {student.lastName}
               </Link>
+              <Link to={`/students/${student.id}/edit`}>Edit</Link>
+              <button type="button" onClick={() => deleteStudent(student.id)}>
+                Remove
+              </button>
             </li>
           ))}
         </ul>
@@ -30,4 +35,13 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(AllStudents)
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteStudent: id => dispatch(deleteStudentThunk(id))
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AllStudents)

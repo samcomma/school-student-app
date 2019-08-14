@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { deleteSchoolThunk } from '../redux/actions/school'
 
 class AllSchools extends Component {
   render() {
-    const { schools } = this.props
+    const { schools, deleteSchool } = this.props
     return (
       <div>
         <ul className="list-unstyled">
@@ -12,6 +13,10 @@ class AllSchools extends Component {
             <li key={school.id}>
               <img src={school.imageUrl} className="list-image" />
               <Link to={`/schools/${school.id}`}>{school.name}</Link>
+              <Link to={`/schools/${school.id}/edit`}>Edit</Link>
+              <button type="button" onClick={() => deleteSchool(school.id)}>
+                Remove
+              </button>
             </li>
           ))}
         </ul>
@@ -29,4 +34,13 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(AllSchools)
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteSchool: id => dispatch(deleteSchoolThunk(id))
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AllSchools)
