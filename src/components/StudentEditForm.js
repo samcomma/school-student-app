@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { createStudentThunk } from '../redux/actions/student'
+import { updateStudentThunk } from '../redux/actions/student'
 
-class StudentForm extends Component {
+class StudentEditForm extends Component {
   constructor() {
     super()
     this.state = {
@@ -20,8 +20,8 @@ class StudentForm extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault()
-    this.props.createStudent(this.state)
-    this.props.history.push('/students')
+    this.props.editStudent(this.props.student.id, this.state)
+    this.props.history.push(`/students/${this.props.student.id}`)
   }
   render() {
     return (
@@ -69,13 +69,19 @@ class StudentForm extends Component {
   }
 }
 
+const mapStateToProps = ({ students }, { match: { params } }) => {
+  return {
+    student: students.length && students.find(s => s.id === Number(params.id)) // this length part stops crashing on refresh
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
-    createStudent: newStudent => dispatch(createStudentThunk(newStudent))
+    editStudent: (id, student) => dispatch(updateStudentThunk(id, student))
   }
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
-)(StudentForm)
+)(StudentEditForm)

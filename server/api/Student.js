@@ -21,6 +21,13 @@ router.post('/', (req, res, next) => {
     .catch(next)
 })
 
+router.put('/:id', (req, res, next) => {
+  Student.findByPk(req.params.id)
+    .then(student => student.update(req.body))
+    .then(student => res.json(student))
+    .catch(next)
+})
+
 router.delete('/:id', (req, res, next) => {
   Student.destroy({
     where: {

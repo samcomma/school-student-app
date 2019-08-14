@@ -23,7 +23,6 @@ class SchoolForm extends Component {
     this.props.history.push('/schools')
   }
   render() {
-    console.log(this.props.createSchool)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -62,6 +61,12 @@ class SchoolForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    schools: state.schools
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     createSchool: newSchool => dispatch(createSchoolThunk(newSchool))
@@ -69,6 +74,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SchoolForm)

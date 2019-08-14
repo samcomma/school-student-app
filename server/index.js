@@ -7,6 +7,8 @@ const student = require('./api/Student')
 
 const port = process.env.PORT || 3000
 
+app.use(express.json())
+
 app.use(express.static(path.join(__dirname, '..', 'public')))
 
 app.get('/app.js', (req, res, next) =>
@@ -19,6 +21,21 @@ app.get('/', (req, res, next) =>
 
 app.use('/api/schools', school)
 app.use('/api/students', student)
+
+// ERROR HANDLING:
+app.use((error, req, res, next) => {
+  let errors
+  if (error.errors) {
+    errors = error.errors.map(err => err.message)
+  } else if (error.original) {
+    errors = [error.original.message]
+  } else {
+    errors = [error.message]
+  }
+
+  console.error(errors)
+  res.status(error.status || 500).send({ errors })
+})
 
 syncAndSeed().then(() =>
   app.listen(port, () => console.log(`Now listening to port: ${port}`))

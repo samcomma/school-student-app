@@ -33,7 +33,9 @@ class SingleStudent extends Component {
             'No School Assigned'
           )}
         </h6>
-        <Link to={`/students/${student.id}/edit`}>Edit</Link>
+        <button type="button">
+          <Link to={`/students/${student.id}/edit`}>Edit</Link>
+        </button>
         <button
           type="submit"
           className="standard-btn"

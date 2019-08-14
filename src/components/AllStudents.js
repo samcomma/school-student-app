@@ -14,7 +14,9 @@ class AllStudents extends Component {
               <Link to={`/students/${student.id}`}>
                 {student.firstName} {student.lastName}
               </Link>
-              <Link to={`/students/${student.id}/edit`}>Edit</Link>
+              <button type="button">
+                <Link to={`/students/${student.id}/edit`}>Edit</Link>
+              </button>
               <button type="button" onClick={() => deleteStudent(student.id)}>
                 Remove
               </button>

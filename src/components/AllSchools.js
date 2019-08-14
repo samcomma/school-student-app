@@ -13,7 +13,9 @@ class AllSchools extends Component {
             <li key={school.id}>
               <img src={school.imageUrl} className="list-image" />
               <Link to={`/schools/${school.id}`}>{school.name}</Link>
-              <Link to={`/schools/${school.id}/edit`}>Edit</Link>
+              <button type="button">
+                <Link to={`/schools/${school.id}/edit`}>Edit</Link>
+              </button>
               <button type="button" onClick={() => deleteSchool(school.id)}>
                 Remove
               </button>

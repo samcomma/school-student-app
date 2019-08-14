@@ -22,7 +22,9 @@ class SingleSchool extends Component {
             </li>
           ))}
         </ul>
-        <Link to={`/schools/${school.id}/edit`}>Edit</Link>
+        <button type="button">
+          <Link to={`/schools/${school.id}/edit`}>Edit</Link>
+        </button>
         <button
           type="submit"
           className="standard-btn"

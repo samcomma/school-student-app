@@ -69,6 +69,12 @@ class StudentForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    students: state.students
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     createStudent: newStudent => dispatch(createStudentThunk(newStudent))
@@ -76,6 +82,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(StudentForm)
