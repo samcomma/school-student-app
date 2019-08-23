@@ -7,25 +7,42 @@ class AllStudents extends Component {
   render() {
     const { students, deleteStudent } = this.props
     return (
-      <div>
-        <ul className="list-unstyled">
+      <div className="container">
+        <hr />
+        <div className="add-section">
+          <Link to="/studentform">
+            <button type="submit" className="btn btn-primary btn-md edit-btn">
+              Add Student
+            </button>
+          </Link>
+        </div>
+        <ul className="list-unstyled list-group-flush student-list">
           {students.map(student => (
-            <li key={student.id}>
-              <Link to={`/students/${student.id}`}>
+            <li
+              key={student.id}
+              className="list-group-item d-flex justify-content-between align-items-center"
+            >
+              <Link to={`/students/${student.id}`} className="flex-grow-1">
                 {student.firstName} {student.lastName}
               </Link>
-              <button type="button">
-                <Link to={`/students/${student.id}/edit`}>Edit</Link>
-              </button>
-              <button type="button" onClick={() => deleteStudent(student.id)}>
+              <Link to={`/students/${student.id}/edit`}>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-md edit-btn"
+                >
+                  Edit
+                </button>
+              </Link>
+              <button
+                type="button"
+                className="btn btn-primary btn-md remove-btn"
+                onClick={() => deleteStudent(student.id)}
+              >
                 Remove
               </button>
             </li>
           ))}
         </ul>
-        <button type="submit" className="standard-btn">
-          <Link to="/studentform">Add Student</Link>
-        </button>
       </div>
     )
   }

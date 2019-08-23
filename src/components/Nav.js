@@ -10,8 +10,11 @@ const navTabs = [
 
 const Nav = () => {
   return (
-    <nav className="navbar navbar-expand-lg">
-      <ul className="navbar-nav">
+    <nav className="navbar navbar-expand-md">
+      <Link className="navbar-brand" to="/">
+        Wizarding Schools
+      </Link>
+      <ul className="navbar-nav ml-auto">
         {navTabs.map(tab => {
           return (
             <Link className="nav-link" key={tab.name} to={tab.path}>

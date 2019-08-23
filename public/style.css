@@ -1,11 +1,99 @@
 .list-image {
   height: 100px;
   width: 100px;
-  margin: 5px;
+  margin: 0px 25px;
+  filter: grayscale(100%);
+  border-radius: 5%;
+  box-shadow: 1px 1px 2px grey;
 }
 
 .single-image {
   height: 200px;
   width: auto;
   margin: 5px;
+}
+
+/*
+-------------------------------
+JUMBOTRON
+-------------------------------
+*/
+
+a {
+  color: #233237;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #c93b2b;
+  text-decoration: none;
+}
+
+nav {
+  height: 80px;
+  margin-bottom: 30px;
+}
+
+.jumbotron {
+  color: #ffffff;
+  background: none;
+  background: url('./img/castle_black_and_white.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 620px;
+}
+
+.jumbotron-content {
+  margin-top: 18%;
+}
+
+.jumbotron .btn {
+  background-color: #c93b2b;
+  border-color: #c93b2b;
+  margin-right: 10px;
+}
+
+.btn:hover {
+  background-color: #721e14;
+  border-color: #721e14;
+  color: #ffffff;
+}
+
+/*
+-------------------------------
+LISTS
+-------------------------------
+*/
+
+.edit-btn {
+  color: #c93b2b;
+  background-color: #ffffff;
+  border-color: #c93b2b;
+  margin-right: 10px;
+  margin-left: 30px;
+  min-width: 78px;
+}
+
+.edit-btn:hover {
+  color: #ffffff;
+}
+
+.remove-btn {
+  background-color: #c93b2b;
+  color: #ffffff;
+  border-color: #c93b2b;
+  min-width: 78px;
+  max-height: 38px;
+}
+
+.add-section {
+  margin: 50px 20px;
+  max-width: 500px;
+}
+
+.student-list {
+  max-width: 500px;
+}
+
+.school-list {
+  max-width: 600px;
 }

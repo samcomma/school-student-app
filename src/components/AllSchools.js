@@ -7,24 +7,43 @@ class AllSchools extends Component {
   render() {
     const { schools, deleteSchool } = this.props
     return (
-      <div>
-        <ul className="list-unstyled">
+      <div className="container">
+        <hr />
+        <div className="add-section">
+          <Link to="/schoolform">
+            <button type="submit" className="btn btn-primary btn-md edit-btn">
+              Add School
+            </button>
+          </Link>
+        </div>
+        <ul className="list-unstyled list-group-flush school-list">
           {schools.map(school => (
-            <li key={school.id}>
+            <li
+              key={school.id}
+              className="list-group-item d-flex justify-content-between align-items-center"
+            >
               <img src={school.imageUrl} className="list-image" />
-              <Link to={`/schools/${school.id}`}>{school.name}</Link>
-              <button type="button">
-                <Link to={`/schools/${school.id}/edit`}>Edit</Link>
-              </button>
-              <button type="button" onClick={() => deleteSchool(school.id)}>
+              <Link to={`/schools/${school.id}`} className="flex-grow-1">
+                {school.name}
+              </Link>
+              <Link to={`/schools/${school.id}/edit`}>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-md edit-btn"
+                >
+                  Edit
+                </button>
+              </Link>
+              <button
+                type="button"
+                className="btn btn-primary btn-md remove-btn"
+                onClick={() => deleteSchool(school.id)}
+              >
                 Remove
               </button>
             </li>
           ))}
         </ul>
-        <button type="submit" className="standard-btn">
-          <Link to="/schoolform">Add School</Link>
-        </button>
       </div>
     )
   }
