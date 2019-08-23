@@ -9,9 +9,13 @@ class AllSchools extends Component {
     return (
       <div className="container">
         <hr />
-        <div className="add-section">
+        <div className="add-section row justify-content-between align-items-center">
+          <h6>Below is a list of our Current Schools:</h6>
           <Link to="/schoolform">
-            <button type="submit" className="btn btn-primary btn-md edit-btn">
+            <button
+              type="submit"
+              className="btn btn-primary btn-md edit-btn add-btn"
+            >
               Add School
             </button>
           </Link>

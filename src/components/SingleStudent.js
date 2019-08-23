@@ -16,15 +16,20 @@ class SingleStudent extends Component {
     }
 
     return (
-      <div>
+      <div className="text-center">
         <img src={student.imageUrl} className="single-image" />
-        <h6>
-          NAME: {student.firstName} {student.lastName}
-        </h6>
-        <h6>EMAIL: {student.email}</h6>
-        <h6>GPA: {student.gpa}</h6>
-        <h6>
-          CAMPUS:{' '}
+
+        <p>
+          <strong>NAME:</strong> {student.firstName} {student.lastName}
+        </p>
+        <p>
+          <strong>EMAIL:</strong> {student.email}
+        </p>
+        <p>
+          <strong>GPA:</strong> {student.gpa}
+        </p>
+        <p>
+          <strong>CAMPUS:</strong>{' '}
           {studentSchool ? (
             <Link to={`/schools/${studentSchool.id}`}>
               {studentSchool.name}
@@ -32,17 +37,25 @@ class SingleStudent extends Component {
           ) : (
             'No School Assigned'
           )}
-        </h6>
-        <button type="button">
-          <Link to={`/students/${student.id}/edit`}>Edit</Link>
-        </button>
-        <button
-          type="submit"
-          className="standard-btn"
-          onClick={() => deleteStudent(student.id)}
-        >
-          <Link to="/students">Remove</Link>
-        </button>
+        </p>
+        <hr />
+        <Link to={`/students/${student.id}/edit`}>
+          <button
+            type="button"
+            className="btn btn-primary btn-md edit-btn single-edit-btn"
+          >
+            Edit
+          </button>
+        </Link>
+        <Link to="/students">
+          <button
+            type="submit"
+            className="btn btn-primary btn-md remove-btn"
+            onClick={() => deleteStudent(student.id)}
+          >
+            Remove
+          </button>
+        </Link>
       </div>
     )
   }

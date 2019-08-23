@@ -18,7 +18,7 @@ const Nav = () => {
         {navTabs.map(tab => {
           return (
             <Link className="nav-link" key={tab.name} to={tab.path}>
-              <li className="nav-item">{tab.name}</li>
+              <li className="nav-item active">{tab.name}</li>
             </Link>
           )
         })}

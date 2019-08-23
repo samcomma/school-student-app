@@ -7,13 +7,16 @@ class SingleSchool extends Component {
   render() {
     const { school, students, deleteSchool } = this.props
     return (
-      <div>
+      <div className="text-center">
         <img src={school.imageUrl} className="single-image" />
         <h3>{school.name}</h3>
         <h5>{school.address}</h5>
-        <p>{school.description}</p>
+        <p className="text-justify">{school.description}</p>
+        <hr />
+        <h6>
+          <strong>FEATURED STUDENTS:</strong>
+        </h6>
         <ul className="list-unstyled">
-          STUDENTS:
           {students.map(student => (
             <li key={student.id}>
               <Link to={`/students/${student.id}`}>
@@ -22,16 +25,23 @@ class SingleSchool extends Component {
             </li>
           ))}
         </ul>
-        <button type="button">
-          <Link to={`/schools/${school.id}/edit`}>Edit</Link>
-        </button>
-        <button
-          type="submit"
-          className="standard-btn"
-          onClick={() => deleteSchool(school.id)}
-        >
-          <Link to="/schools">Remove</Link>
-        </button>
+        <Link to={`/schools/${school.id}/edit`}>
+          <button
+            type="button"
+            className="btn btn-primary btn-md edit-btn single-edit-btn"
+          >
+            Edit
+          </button>
+        </Link>
+        <Link to="/schools">
+          <button
+            type="submit"
+            className="btn btn-primary btn-md remove-btn"
+            onClick={() => deleteSchool(school.id)}
+          >
+            Remove
+          </button>
+        </Link>
       </div>
     )
   }
