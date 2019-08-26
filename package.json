@@ -40,7 +40,7 @@
     "webpack": "webpack",
     "webpack:dev": "npm run webpack -- --mode=development --watch",
     "start:dev": "npm run webpack:dev & DATABASE_URL=postgres://localhost/schools_students_db nodemon server --ignore src/ --ignore dist/",
-    "postinstall": "ng build"
+    "postinstall": "npm run webpack"
   },
   "keywords": [],
   "author": "",
