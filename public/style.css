@@ -42,7 +42,7 @@ nav {
   background: none;
   background: url('./img/castle_black_and_white.jpg') no-repeat center center;
   background-size: cover;
-  min-height: 620px;
+  min-height: 580px;
 }
 
 .jumbotron-content {
