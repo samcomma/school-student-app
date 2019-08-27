@@ -26,38 +26,53 @@ class SchoolEditForm extends Component {
   render() {
     return (
       <div>
-        <h5>Edit School:</h5>
-        <h6>{this.props.school.name}</h6>
+        <h6 className="form-heading">Please provide updated details for <strong>{this.props.school.name}</strong> that you would like to edit:</h6>
         <form onSubmit={this.handleSubmit}>
-          <label>Name: </label>
-          <input
-            name="name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
+          <div className="form-group">
+            <label>Name: </label>
+            <input
+              name="name"
+              placeholder="Update the school's name"
+              className="form-control"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </div>
           <br />
-          <label>Address: </label>
-          <input
-            name="address"
-            value={this.state.address}
-            onChange={this.handleChange}
-          />
+          <div className="form-group">
+            <label>Address: </label>
+            <input
+              name="address"
+              placeholder="Update the school's address"
+              className="form-control"
+              value={this.state.address}
+              onChange={this.handleChange}
+            />
+          </div>
           <br />
-          <label>Description: </label>
-          <textarea
-            name="description"
-            value={this.state.description}
-            onChange={this.handleChange}
-          />
+          <div className="form-group">
+            <label>Description: </label>
+            <textarea
+              name="description"
+              placeholder="Update the description of the school"
+              className="form-control"
+              value={this.state.description}
+              onChange={this.handleChange}
+            />
+          </div>
           <br />
-          <label>Image Url: </label>
-          <input
-            name="imageUrl"
-            value={this.state.imageUrl}
-            onChange={this.handleChange}
-          />
+          <div className="form-group">
+            <label>Image Url: </label>
+            <input
+              name="imageUrl"
+              placeholder="Update the image url for the school"
+              className="form-control"
+              value={this.state.imageUrl}
+              onChange={this.handleChange}
+            />
+          </div>
           <br />
-          <button type="submit">Submit</button>
+          <button type="submit" className="btn btn-primary btn-md edit-btn single-edit-btn">Submit</button>
         </form>
       </div>
     )

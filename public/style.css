@@ -113,3 +113,13 @@ LISTS
 h5 {
   margin-bottom: 30px;
 }
+
+
+
+form {
+  max-width: 650px;
+}
+
+.form-heading {
+  margin: 50px 0;
+}
