@@ -34,7 +34,6 @@ a:hover {
 
 nav {
   height: 80px;
-  margin-bottom: 30px;
 }
 
 .jumbotron {
@@ -122,4 +121,19 @@ form {
 
 .form-heading {
   margin: 50px 0;
+}
+
+.form-group {
+  margin: 0px;
+}
+
+
+/*
+-------------------------------
+FOOTER
+-------------------------------
+*/
+
+.page-footer {
+  height: 20px;
 }

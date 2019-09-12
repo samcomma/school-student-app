@@ -10,7 +10,7 @@ class StudentForm extends Component {
       lastName: '',
       email: '',
       imageUrl: '',
-      gpa: ''
+      gpa: null
     }
   }
 

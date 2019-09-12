@@ -3,6 +3,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Nav from './Nav'
 import Home from './Home'
+import Footer from './Footer'
 import AllSchools from './AllSchools'
 import AllStudents from './AllStudents'
 import SingleSchool from './SingleSchool'
@@ -34,6 +35,7 @@ class App extends Component {
           <Route path="/studentform" component={StudentForm} />
           <Route path="/students/:id/edit" component={StudentEditForm} />
         </Switch>
+        <Route component={Footer} />
       </Router>
     )
   }
